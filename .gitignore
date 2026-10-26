@@ -16,3 +16,7 @@ __pycache__/
 # PDB de MSVC (salen junto a los .exe generados)
 *.pdb
 *.ilk
+
+# Archivos fantasma (git indexing issue)
+src/aux.c
+src/aux.h
