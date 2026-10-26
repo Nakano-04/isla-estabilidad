@@ -1,0 +1,107 @@
+{
+  "escala": {
+    "filas": [
+      {
+        "escala": 1,
+        "n": 60,
+        "mediana_ms": 12.3058,
+        "cv": 0.04348632860806702,
+        "iqr": 0.5669249999999995,
+        "mad": 0.2873000000000001,
+        "p05": 11.409645,
+        "p95": 13.405025,
+        "ci_bajo": 12.1204,
+        "ci_alto": 12.398,
+        "resolucion_ms": 0.2775999999999996,
+        "resolucion_rel": 0.022558468364511013
+      },
+      {
+        "escala": 2,
+        "n": 60,
+        "mediana_ms": 24.6563,
+        "cv": 0.07283441833759606,
+        "iqr": 2.323725000000003,
+        "mad": 1.0259500000000017,
+        "p05": 23.174695,
+        "p95": 28.306414999999998,
+        "ci_bajo": 24.054305,
+        "ci_alto": 25.04175,
+        "resolucion_ms": 0.987445000000001,
+        "resolucion_rel": 0.04004838519972587
+      },
+      {
+        "escala": 4,
+        "n": 60,
+        "mediana_ms": 50.5025,
+        "cv": 0.03714518897662656,
+        "iqr": 1.8879499999999965,
+        "mad": 1.0349000000000004,
+        "p05": 47.977160000000005,
+        "p95": 53.522594999999995,
+        "ci_bajo": 50.0279,
+        "ci_alto": 50.7824,
+        "resolucion_ms": 0.7545000000000002,
+        "resolucion_rel": 0.014939854462650368
+      },
+      {
+        "escala": 8,
+        "n": 60,
+        "mediana_ms": 97.536,
+        "cv": 0.0312876874072196,
+        "iqr": 3.3705500000000086,
+        "mad": 1.3057999999999979,
+        "p05": 95.349425,
+        "p95": 104.55041499999999,
+        "ci_bajo": 96.94931625,
+        "ci_alto": 98.4624,
+        "resolucion_ms": 1.513083750000007,
+        "resolucion_rel": 0.015513079785925268
+      },
+      {
+        "escala": 16,
+        "n": 60,
+        "mediana_ms": 225.2892,
+        "cv": 0.06958643645229087,
+        "iqr": 16.72139999999999,
+        "mad": 10.1909,
+        "p05": 205.166855,
+        "p95": 256.054255,
+        "ci_bajo": 223.7067,
+        "ci_alto": 229.0848,
+        "resolucion_ms": 5.378099999999989,
+        "resolucion_rel": 0.02387198321091286
+      },
+      {
+        "escala": 32,
+        "n": 60,
+        "mediana_ms": 479.2697,
+        "cv": 0.057584833370338505,
+        "iqr": 30.040100000000052,
+        "mad": 15.198500000000024,
+        "p05": 447.72970000000004,
+        "p95": 544.4982299999999,
+        "ci_bajo": 474.274,
+        "ci_alto": 487.96145,
+        "resolucion_ms": 13.687450000000013,
+        "resolucion_rel": 0.02855897211945594
+      }
+    ],
+    "ajuste": {
+      "hipotesis_original": "CV ~ k/T (ruido absoluto, aditivo)",
+      "test_decisivo": "Si el ruido fuera aditivo, al pasar de 12.3 ms a 479.3 ms (38.9x) el CV caeria a 0.112 %. Medido: 5.76 %, es decir 52x MAS ALTO de lo que predice el modelo. HIPOTESIS REFUTADA.",
+      "modelo_observado": "CV ~ constante (ruido proporcional)",
+      "cv_medio": 0.052,
+      "cv_min": 0.0313,
+      "cv_max": 0.0728,
+      "cv_min_escala": 12.3058,
+      "cv_max_escala": 479.2697,
+      "factor_carga": 38.9,
+      "razon_observada_sobre_prediccion_1_sobre_T": 51.6,
+      "pendiente_cv_vs_1_sobre_T": -0.057,
+      "r2_cv_vs_1_sobre_T": 0.01,
+      "modelo_resolucion": "ancho_IC95(mediana) ~ 4.91 * CV / sqrt(n)",
+      "razon_observada_sobre_prediccion": 0.738,
+      "regla_de_diseno": "n(delta) ~ (4.91 * CV / delta)^2 con CV~0.052: para resolver un 1 % hacen falta ~651 corridas por variante; para un 0,5 %, ~2606. Alargar la carga de trabajo NO abarata la medicion: el ruido es proporcional, no aditivo. El unico palanca es n."
+    }
+  }
+}

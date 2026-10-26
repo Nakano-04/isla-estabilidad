@@ -1,0 +1,18 @@
+# Artefactos de construccion (se regeneran con `python -m bench.run todo`)
+build/
+
+# Salidas de ejecucion
+resultados/*/resultados.json
+resultados/*/artefactos.csv
+resultados/*/mediciones.csv
+resultados/*/frontera.svg
+resultados/*/INFORME.md
+resultados/*/resumen.txt
+
+# Python
+__pycache__/
+*.py[cod]
+
+# PDB de MSVC (salen junto a los .exe generados)
+*.pdb
+*.ilk

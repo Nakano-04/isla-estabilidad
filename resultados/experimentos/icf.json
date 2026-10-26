@@ -1,0 +1,175 @@
+{
+  "icf": {
+    "casos": [
+      {
+        "caso": "base",
+        "flags_compilacion": [],
+        "flags_enlace": [],
+        "exe_bytes": 15360,
+        "obj_text": 5830,
+        "text_pe": 8358,
+        "copias_funcion": 3,
+        "avisos_criticos": [],
+        "delta_text_vs_base": 0,
+        "delta_obj_text_vs_base": 0,
+        "pliega": false
+      },
+      {
+        "caso": "funcsec",
+        "flags_compilacion": [
+          "-ffunction-sections",
+          "-fdata-sections"
+        ],
+        "flags_enlace": [],
+        "exe_bytes": 15360,
+        "obj_text": 5790,
+        "text_pe": 8310,
+        "copias_funcion": 1,
+        "avisos_criticos": [],
+        "delta_text_vs_base": -48,
+        "delta_obj_text_vs_base": -40,
+        "pliega": true
+      },
+      {
+        "caso": "icf_elf_invalido",
+        "flags_compilacion": [],
+        "flags_enlace": [
+          "-Wl,--icf=all"
+        ],
+        "exe_bytes": 15360,
+        "obj_text": 5830,
+        "text_pe": 8358,
+        "copias_funcion": 3,
+        "avisos_criticos": [
+          "ignoring unknown argument"
+        ],
+        "delta_text_vs_base": 0,
+        "delta_obj_text_vs_base": 0,
+        "pliega": false
+      },
+      {
+        "caso": "icf_valido_sin_comdat",
+        "flags_compilacion": [],
+        "flags_enlace": [
+          "-Wl,/OPT:ICF"
+        ],
+        "exe_bytes": 15360,
+        "obj_text": 5830,
+        "text_pe": 8358,
+        "copias_funcion": 3,
+        "avisos_criticos": [],
+        "delta_text_vs_base": 0,
+        "delta_obj_text_vs_base": 0,
+        "pliega": false
+      },
+      {
+        "caso": "icf_valido_con_comdat",
+        "flags_compilacion": [
+          "-ffunction-sections",
+          "-fdata-sections"
+        ],
+        "flags_enlace": [
+          "-Wl,/OPT:ICF"
+        ],
+        "exe_bytes": 15360,
+        "obj_text": 5790,
+        "text_pe": 8310,
+        "copias_funcion": 1,
+        "avisos_criticos": [],
+        "delta_text_vs_base": -48,
+        "delta_obj_text_vs_base": -40,
+        "pliega": true
+      },
+      {
+        "caso": "comdat_solo",
+        "flags_compilacion": [
+          "-ffunction-sections",
+          "-fdata-sections"
+        ],
+        "flags_enlace": [],
+        "exe_bytes": 15360,
+        "obj_text": 5790,
+        "text_pe": 8310,
+        "copias_funcion": 1,
+        "avisos_criticos": [],
+        "delta_text_vs_base": -48,
+        "delta_obj_text_vs_base": -40,
+        "pliega": true
+      },
+      {
+        "caso": "comdat_gc",
+        "flags_compilacion": [
+          "-ffunction-sections",
+          "-fdata-sections"
+        ],
+        "flags_enlace": [
+          "-Wl,--gc-sections"
+        ],
+        "exe_bytes": 15360,
+        "obj_text": 5790,
+        "text_pe": 8310,
+        "copias_funcion": 1,
+        "avisos_criticos": [
+          "ignoring unknown argument"
+        ],
+        "delta_text_vs_base": -48,
+        "delta_obj_text_vs_base": -40,
+        "pliega": true
+      },
+      {
+        "caso": "comdat_gc_icf",
+        "flags_compilacion": [
+          "-ffunction-sections",
+          "-fdata-sections"
+        ],
+        "flags_enlace": [
+          "-Wl,--gc-sections",
+          "-Wl,/OPT:ICF"
+        ],
+        "exe_bytes": 15360,
+        "obj_text": 5790,
+        "text_pe": 8310,
+        "copias_funcion": 1,
+        "avisos_criticos": [
+          "ignoring unknown argument"
+        ],
+        "delta_text_vs_base": -48,
+        "delta_obj_text_vs_base": -40,
+        "pliega": true
+      },
+      {
+        "caso": "merge_constantes",
+        "flags_compilacion": [
+          "-fmerge-all-constants"
+        ],
+        "flags_enlace": [],
+        "exe_bytes": 15360,
+        "obj_text": 5830,
+        "text_pe": 8358,
+        "copias_funcion": 3,
+        "avisos_criticos": [],
+        "delta_text_vs_base": 0,
+        "delta_obj_text_vs_base": 0,
+        "pliega": false
+      },
+      {
+        "caso": "merge_constantes_comdat",
+        "flags_compilacion": [
+          "-fmerge-all-constants",
+          "-ffunction-sections",
+          "-fdata-sections"
+        ],
+        "flags_enlace": [],
+        "exe_bytes": 15360,
+        "obj_text": 5790,
+        "text_pe": 8310,
+        "copias_funcion": 1,
+        "avisos_criticos": [],
+        "delta_text_vs_base": -48,
+        "delta_obj_text_vs_base": -40,
+        "pliega": true
+      }
+    ],
+    "conclusion": "El plegado de funciones identicas en PE/COFF lo produce la semantica de seleccion COMDAT, que se activa con -ffunction-sections y NO requiere ninguna opcion ICF. /OPT:ICF (la sintaxis valida de lld-link) no aporta nada adicional, y --icf=all (sintaxis de lld-ELF) la ignora en silencio: usarla produce un nulo FALSO."
+  }
+}

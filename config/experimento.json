@@ -1,0 +1,45 @@
+{
+  "escala": 3,
+  "perfiles": {
+    "rapido": {
+      "niveles": ["O0", "O2", "Os", "Oz"],
+      "desenrollados": ["con", "sin"],
+      "enlaces": ["defecto", "gc_secciones"],
+      "depuraciones": ["sin_info"]
+    },
+    "estandar": {
+      "niveles": ["O0", "O1", "O2", "O3", "Os", "Oz"],
+      "desenrollados": ["con", "sin"],
+      "enlaces": ["defecto", "func_secciones", "lto_thin"],
+      "depuraciones": ["sin_info", "line_tables"]
+    },
+    "completo": {
+      "niveles": ["O0", "O1", "O2", "O3", "Os", "Oz"],
+      "desenrollados": ["con", "sin"],
+      "enlaces": ["defecto", "func_secciones", "gc_secciones", "lto_thin",
+                  "lto_thin_icf_sin_comdat", "lto_thin_icf"],
+      "depuraciones": ["sin_info", "line_tables", "con_info"]
+    }
+  },
+  "perfil_por_defecto": "estandar",
+  "cribado": {
+    "repeticiones": 5,
+    "calentamiento": 1
+  },
+  "medicion": {
+    "repeticiones": 40,
+    "calentamiento": 2
+  },
+  "seleccion": {
+    "maximo_finales": 20,
+    "incluir_mejor_por_nivel": true
+  },
+  "limites": {
+    "cv_max": 0.20,
+    "deriva_pct_max": 3.0,
+    "t_interno_ms_max": null
+  },
+  "fijar_afinidad": true,
+  "nucleo_afinidad": 12,
+  "settle_segundos": 40
+}
