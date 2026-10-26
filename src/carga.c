@@ -26,7 +26,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "aux.h"
+#include "aux_header.h"
 
 #if defined(_WIN32)
 #  include <windows.h>
